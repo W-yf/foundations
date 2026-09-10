@@ -30,25 +30,47 @@ repository_url: https://github.com/W-yf/foundations
 repository_role: course
 branch: main
 setup_status: remote_repository_initialized
-learning_status: not_started
-environment_verification: not_started
-theory_evidence: none
+learning_status: testing_in_progress_r0_01_pending_personal_computer
+environment_verification: pending_personal_computer
+theory_evidence: testing_limits_example_discussed
 lab_evidence: none
 remote_status: configured
-sync_status: initial_publication_verified
+sync_status: verify_head_against_origin_main
 initial_published_commit: 94d2d4b3bf0b9cbe258db5e82bc84546fe04a345
 initial_publish_verified_on: 2026-09-10
-overview_sync_status: pending_summary_update
-handoff_status: not_generated
-next_task: review_then_r0_01_environment_and_baseline
+overview_sync_status: see_main_repository_status
+handoff_status: repository_readme_is_current_entry
+next_task: testing_test_first_programming_reading
 ```
 
-课程初始化提交已推送并完成远程核对，记录的 initial_published_commit 指向已验证的首次发布；本课程尚无实验代码或学习证据，主仓库的课程索引仍待回写发布结果。主仓库也有尚未发布的计划修订；首次接手需核对两边实际版本，上面的远程链接不代表本轮修订已经发布。
+当前已讨论 Testing 中测试的作用与边界，尚未确认 Test-first Programming 阅读完成，待答题见下方接续入口。R0-01 环境验证和所有实验留待个人电脑完成；理论与实验分别验收，尚无完整 R0 验收。
 
-## 下一次学习
+本 README 是当前交接入口，旧临时开课快照已过时，无需携带。环境初查见 [日志](logs/2026-09-10.md)；主仓库 [STATUS](https://github.com/W-yf/self-Learning/blob/main/STATUS.md) 登记已核对的课程提交。两仓库是否同步，以本地 HEAD 和远程 main 的实际比较为准。
 
-1. 按 [协作规则](AGENTS.md) 检查主仓库和本课程仓库的同步状态，读取主仓库 STATUS 与本 README；尚无远程时明确记录，不能声称已拉取或同步。
-2. 读取主仓库 REVIEW 与题库，先完成到期复习，一次一题。
-3. 开始 R0-01，验证最小环境并记录真实缺口，再进入规格与测试。当前没有可运行的构建或测试命令，验证后补充实际命令、结果与通用环境信息。
+## 学习笔记与成果入口
 
-后续按需建立 `notes/`、`exercises/` 与 `logs/`，实验的源码和测试就近组织。每次学习结束更新本 README 的课程状态及证据入口，再回写主仓库进度；不重复维护全局计划或复习队列。
+`notes/` 只保存课程知识和个人理解，必要时附来源、边界与例子；`exercises/` 保存实现与验证。学习时不逐题改文件，小节结束后整理，课程结束时统一审校、去重和精简。问答流水、提示过程与教学评语不写入笔记或另存为学习日志。
+
+| 主题 | 内容 |
+|---|---|
+| [Testing：测试的作用与边界](notes/testing.md) | 测试通过的含义、反例与相等输入示例 |
+
+关键结论以课程原文或官方资料为依据；个人理解忠实于实际表达，不把 AI 补充写成独立产出。README 只保留接续所需的进度和下一步，主仓库维护摘要与统一复习。文件整理不代表课程验收完成。
+
+## 个人电脑接续
+
+1. 在已有的 `self-Learning` 和 `foundations` 本地仓库中分别执行 `git pull --ff-only`，先确认没有会被覆盖的本地改动。有分叉时核对处理，不强制覆盖。
+2. 读取主仓库 [STATUS](https://github.com/W-yf/self-Learning/blob/main/STATUS.md)、两仓库 AGENTS、本 README 和 [Testing 笔记](notes/testing.md)。2026-09-10 的三题学前复习已结束；同日接续不重复，从 2026-09-11 起按实际日期检查到期卡。
+3. 个人电脑先检查已有系统与 C/C++、GDB、Python 环境，保留可用配置；虚拟机或 WSL2 尚未选定，不据此前电脑的检查结果推断本机状态。环境验证未完成前仍可继续理论阅读。
+4. 理论下一步：阅读 [Testing](https://ocw.mit.edu/ans7870/6/6.005/s16/classes/03-testing/) 的 **Test-first Programming**，到 **Choosing Test Cases by Partitioning** 标题前停止。以下待答题尚未完成，一次只问这一题：
+
+   ```cpp
+   // 判断成绩是否合格
+   bool passed(int score);
+   ```
+
+   准备为 `passed(60)` 写测试时，这份约定还缺少什么信息，导致无法确定预期结果？
+
+5. 实验下一步：完成 R0-01 的编译运行、GDB 单步与 Python 测试验证，再独立编写自拟 C 小程序检查指针、数组、结构体及分配/释放。不得把环境检查或知识笔记当作实验完成。
+
+小节结束整理笔记，本轮结束或交接时更新必要进度并同步两仓库。学习接续不需要复制聊天或临时交接文件；编译器、调试器和其他本机工具需在个人电脑单独核验。
