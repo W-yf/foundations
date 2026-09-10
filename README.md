@@ -29,18 +29,21 @@ repository_name: foundations
 repository_url: https://github.com/W-yf/foundations
 repository_role: course
 branch: main
-setup_status: local_repository_initialized
+setup_status: remote_repository_initialized
 learning_status: not_started
 environment_verification: not_started
 theory_evidence: none
 lab_evidence: none
 remote_status: configured
-sync_status: initial_publication_pending
+sync_status: initial_publication_verified
+initial_published_commit: 94d2d4b3bf0b9cbe258db5e82bc84546fe04a345
+initial_publish_verified_on: 2026-09-10
+overview_sync_status: pending_summary_update
 handoff_status: not_generated
 next_task: review_then_r0_01_environment_and_baseline
 ```
 
-已完成本地仓库及文档初始化，并关联课程远程仓库；首次提交与发布正在准备，尚无实验代码或学习证据。主仓库也有尚未发布的计划修订；首次接手需核对两边实际版本，上面的远程链接不代表本轮修订已经发布。
+课程初始化提交已推送并完成远程核对，记录的 initial_published_commit 指向已验证的首次发布；本课程尚无实验代码或学习证据，主仓库的课程索引仍待回写发布结果。主仓库也有尚未发布的计划修订；首次接手需核对两边实际版本，上面的远程链接不代表本轮修订已经发布。
 
 ## 下一次学习
 
