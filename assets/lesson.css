@@ -1,0 +1,13 @@
+:root{color-scheme:light;--paper:#faf9f5;--ink:#20313b;--muted:#647078;--accent:#176b69;--line:#d9dfda}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.85 "Segoe UI","Microsoft YaHei",sans-serif}
+main{max-width:840px;margin:0 auto;padding:52px 32px 64px}nav,footer,.meta{font-size:13px;color:var(--muted)}
+a{color:var(--accent);text-underline-offset:4px}h1{font-size:36px;line-height:1.4;letter-spacing:-1px;margin:12px 0 16px}h2{font-size:21px;margin:30px 0 10px}p{margin:12px 0}
+.lead{font-size:20px;max-width:36em}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:2px;font-weight:700}
+code{font:0.9em/1.65 Consolas,monospace}pre{padding:22px;background:#eef1ed;border-left:3px solid var(--accent);overflow:auto;line-height:1.65}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}.step{border-top:2px solid var(--accent);padding-top:12px}.step b{display:block}.step p{font-size:15px}
+fieldset{border:1px solid var(--line);padding:18px 20px}legend{font-weight:600;padding:0 8px}.options{display:flex;flex-wrap:wrap;gap:12px}label{padding:8px 14px;border:1px solid var(--line);cursor:pointer;background:white}input{accent-color:var(--accent)}
+button{margin-top:16px;background:var(--accent);border:0;color:white;border-radius:3px;padding:10px 18px;font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid #bc733b;outline-offset:3px}.feedback{min-height:2em;font-size:15px}.feedback[data-result="correct"]{color:#176349}
+dl{display:grid;grid-template-columns:110px 1fr;gap:10px 20px}dt{font-weight:600}dd{margin:0}footer{border-top:1px solid var(--line);margin-top:38px;padding-top:16px}.source{font-size:14px}
+@media(max-width:620px){main{padding:28px 20px 40px}h1{font-size:28px}.steps{grid-template-columns:1fr;gap:6px}.lead{font-size:18px}pre{padding:16px}dl{grid-template-columns:1fr;gap:4px}dd{margin-bottom:14px}}
+@media print{body{background:white;font-size:11pt}main{max-width:none;padding:0}h1{font-size:24pt}nav,button,.options,.feedback{display:none}pre{white-space:pre-wrap;break-inside:avoid}.steps{break-inside:avoid}a{color:inherit}footer{font-size:9pt}}

@@ -6,7 +6,7 @@
 
 ## 范围与验收
 
-固定参考 **MIT 6.005 Spring 2016** 的四份讲义：[Testing](https://ocw.mit.edu/ans7870/6/6.005/s16/classes/03-testing/)、[Specifications](https://ocw.mit.edu/ans7870/6/6.005/s16/classes/06-specifications/)、[Abstract Data Types](https://ocw.mit.edu/ans7870/6/6.005/s16/classes/12-abstract-data-types/)、[Abstraction Functions & Rep Invariants](https://ocw.mit.edu/ans7870/6/6.005/s16/classes/13-abstraction-functions-rep-invariants/)。使用 C/C++ 自拟练习，不使用 Java 评分器。
+固定参考 **MIT 6.031 Spring 2022** 的四份讲义：[Testing](https://web.mit.edu/6.031/www/sp22/classes/03-testing/)、[Specifications](https://web.mit.edu/6.031/www/sp22/classes/06-specifications/)、[Abstract Data Types](https://web.mit.edu/6.031/www/sp22/classes/10-abstract-data-types/)、[Abstraction Functions & Rep Invariants](https://web.mit.edu/6.031/www/sp22/classes/11-abstraction-functions-rep-invariants/)。使用 C/C++ 自拟练习，并按主题采用 Python 公开项目。用户明确不学习 Java，不安排 Java 补课、原版 Java 编程作业或 Java 评分器；相应知识通过独立练习验证。旧 MITx 视频按主题辅助理解，定义与版本差异以 2022 讲义为准；TypeScript 只按阅读需要解释，不自动新增语言课程。既有笔记保留当时实际使用的 2016 来源。
 
 | 任务 | 完成证据 |
 |---|---|
@@ -23,7 +23,7 @@
 ## 当前状态
 
 ```yaml
-last_updated: 2026-09-10
+last_updated: 2026-09-14
 course_id: R0
 repository_name: foundations
 repository_url: https://github.com/W-yf/foundations
@@ -40,10 +40,10 @@ initial_published_commit: 94d2d4b3bf0b9cbe258db5e82bc84546fe04a345
 initial_publish_verified_on: 2026-09-10
 overview_sync_status: see_main_repository_status
 handoff_status: repository_readme_is_current_entry
-next_task: testing_test_first_programming_reading
+next_task: due_review_then_testing_test_first_programming
 ```
 
-当前已讨论 Testing 中测试的作用与边界，尚未确认 Test-first Programming 阅读完成，待答题见下方接续入口。R0-01 环境验证和所有实验留待个人电脑完成；理论与实验分别验收，尚无完整 R0 验收。
+当前处于 Testing 入门：已讨论测试的作用与边界，尚未确认 Test-first Programming 阅读完成，下一步继续该小节。正式项目作业尚未启动。schedule（标签 1.2.2）的 teach 导读 01 已备好，留待相关理论与小练习完成后使用；未记录为已阅读或掌握。R0-01 环境验证和所有实验留待个人电脑完成；理论与实验分别验收，尚无完整 R0 验收。
 
 本 README 是当前交接入口，旧临时开课快照已过时，无需携带。环境初查见 [日志](logs/2026-09-10.md)；主仓库 [STATUS](https://github.com/W-yf/self-Learning/blob/main/STATUS.md) 登记已核对的课程提交。两仓库是否同步，以本地 HEAD 和远程 main 的实际比较为准。
 
@@ -54,23 +54,19 @@ next_task: testing_test_first_programming_reading
 | 主题 | 内容 |
 |---|---|
 | [Testing：测试的作用与边界](notes/testing.md) | 测试通过的含义、反例与相等输入示例 |
+| [schedule 导读 01](lessons/0001-schedule-registration.html) · [术语速查](reference/schedule-basics.html) | 后续备用的 AI 教学材料；未启动阅读或项目作业 |
 
 关键结论以课程原文或官方资料为依据；个人理解忠实于实际表达，不把 AI 补充写成独立产出。README 只保留接续所需的进度和下一步，主仓库维护摘要与统一复习。文件整理不代表课程验收完成。
 
 ## 个人电脑接续
 
 1. 在已有的 `self-Learning` 和 `foundations` 本地仓库中分别执行 `git pull --ff-only`，先确认没有会被覆盖的本地改动。有分叉时核对处理，不强制覆盖。
-2. 读取主仓库 [STATUS](https://github.com/W-yf/self-Learning/blob/main/STATUS.md)、两仓库 AGENTS、本 README 和 [Testing 笔记](notes/testing.md)。2026-09-10 的三题学前复习已结束；同日接续不重复，从 2026-09-11 起按实际日期检查到期卡。
+2. 读取主仓库 [STATUS](https://github.com/W-yf/self-Learning/blob/main/STATUS.md)、两仓库 AGENTS、本 README 和 [Testing 笔记](notes/testing.md)。最近一次复习为 2026-09-11，三题下次日期均为 2026-09-12；截至 2026-09-14 已到期。正式学习前读取主仓库 REVIEW 和题库，一次一道不同场景的具体代码题。本次仅整理同步，未完成新的复习或学习日。
 3. 个人电脑先检查已有系统与 C/C++、GDB、Python 环境，保留可用配置；虚拟机或 WSL2 尚未选定，不据此前电脑的检查结果推断本机状态。环境验证未完成前仍可继续理论阅读。
-4. 理论下一步：阅读 [Testing](https://ocw.mit.edu/ans7870/6/6.005/s16/classes/03-testing/) 的 **Test-first Programming**，到 **Choosing Test Cases by Partitioning** 标题前停止。以下待答题尚未完成，一次只问这一题：
-
-   ```cpp
-   // 判断成绩是否合格
-   bool passed(int score);
-   ```
-
-   准备为 `passed(60)` 写测试时，这份约定还缺少什么信息，导致无法确定预期结果？
+4. 理论下一步：学习 [Testing](https://web.mit.edu/6.031/www/sp22/classes/03-testing/) 的 **Test-first Programming**，到 **Systematic testing** 标题前停止；可配合 [视频 P21](https://www.bilibili.com/video/BV1Tp4y197XX/?p=21) 的 Test-first Programming 部分，再做一道新的具体小题。随后按主题继续分区、边界与测试方法，再衔接 Specifications。能够独立说明约定、选择代表性输入并确定预期结果后，再进行作业所需的项目导读与限定改动。schedule 多标签查询仍是自拟练习候选，既有 R0 图练习验收尚未调整。
 
 5. 实验下一步：完成 R0-01 的编译运行、GDB 单步与 Python 测试验证，再独立编写自拟 C 小程序检查指针、数组、结构体及分配/释放。不得把环境检查或知识笔记当作实验完成。
 
 小节结束整理笔记，本轮结束或交接时更新必要进度并同步两仓库。学习接续不需要复制聊天或临时交接文件；编译器、调试器和其他本机工具需在个人电脑单独核验。
+
+本轮同步范围为上述接续信息和备用 teach 页面；发布版本以 Git 提交及主仓库课程索引为准。生成教学材料不提高掌握层级。

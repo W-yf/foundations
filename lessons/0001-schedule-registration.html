@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01 · 任务何时才算登记？｜schedule 导读</title>
+<link rel="stylesheet" href="../assets/lesson.css"><script src="../assets/quiz.js" defer></script>
+</head>
+<body><main>
+<nav><a href="../README.md">课程入口</a> · <a href="../reference/schedule-basics.html">术语速查</a></nav>
+<header><p class="eyebrow">R0 / 公开项目导读 / 01</p><h1>任务何时才算登记？</h1>
+<p class="lead">读懂一小段真实项目的执行过程，为独立写规格和测试做准备。</p>
+<p class="meta">约 5 分钟 · 基于 schedule 1.2.2 · AI 编写的教学材料，尚不代表学习者已掌握</p></header>
+<section aria-labelledby="roles"><h2 id="roles">先认识两个对象</h2>
+<p><code>Scheduler</code> 管理任务列表；<code>Job</code> 保存一个任务的配置，例如间隔、单位和待调用函数。这里的“登记”，指把任务加入 <code>scheduler.jobs</code>。</p>
+<div class="steps">
+<div class="step"><b>① 创建与配置</b><p><code>every(10)</code> 创建 Job。<code>.seconds</code> 设置单位并返回同一对象，此时尚未登记。</p></div>
+<div class="step"><b>② 登记</b><p><code>.do(record)</code> 绑定函数、计算下次运行时间，再把 Job 加入列表。这里没有调用 <code>record()</code>。</p></div>
+<div class="step"><b>③ 执行</b><p>之后调用 <code>run_pending()</code>，才会检查并执行已到期的任务。库不会自动启动后台循环。</p></div>
+</div>
+<p class="source">源码依据：<a href="https://github.com/dbader/schedule/blob/1.2.2/schedule/__init__.py">1.2.2 的 schedule/__init__.py</a>。先查找 <code>Scheduler.every</code> 和 <code>Job.do</code>，比较哪里创建对象、哪里向列表追加对象。</p>
+</section>
+<section aria-labelledby="try"><h2 id="try">停下来，沿代码走一遍</h2>
+<p>无需安装或运行。<code>events</code> 记录函数执行次数；<code>len</code> 取得列表长度。</p>
+<pre><code>import schedule
+
+events = []
+
+def record():
+    events.append("done")
+
+scheduler = schedule.Scheduler()
+job = scheduler.every(10).seconds
+job.do(record)
+
+print(len(scheduler.jobs), len(events))</code></pre>
+<form data-quiz data-answer="b" data-correct="判断正确。do 已把 Job 加入任务列表，但没有调用 record，两个长度分别是 1 和 0。请回到对话，用自己的话说明是哪一行改变了哪个列表。"
+data-retry="再跟踪两个列表：哪个操作向 scheduler.jobs 追加对象？events.append 所在的函数体是否被调用过？重新选择后可再次核对。">
+<fieldset><legend>最后一行输出什么？</legend><div class="options">
+<label><input type="radio" name="output" value="a"> <code>0 0</code></label>
+<label><input type="radio" name="output" value="b"> <code>1 0</code></label>
+<label><input type="radio" name="output" value="c"> <code>1 1</code></label>
+</div><button type="submit">核对判断</button><p class="feedback" data-feedback role="status" aria-live="polite"></p>
+<noscript><p>当前预览未启用交互，请直接在对话里提交答案和理由。</p></noscript></fieldset></form>
+</section>
+<footer>有不清楚的语法或执行步骤，直接在对话中提问。后续用不同代码验证迁移理解。<br>
+<a href="../reference/schedule-basics.html">打开术语速查</a> · 本页例子为教学自拟，未运行 Python 实验。</footer>
+</main></body></html>

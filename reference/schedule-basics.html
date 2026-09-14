@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>schedule 术语速查</title><link rel="stylesheet" href="../assets/lesson.css"></head>
+<body><main><nav><a href="../lessons/0001-schedule-registration.html">返回第 01 课</a></nav>
+<p class="eyebrow">R0 / REFERENCE</p><h1>schedule 术语速查</h1>
+<p class="meta">版本 1.2.2 · AI 整理的源码参考，不是个人学习笔记</p>
+<dl>
+<dt>调度器</dt><dd><code>Scheduler</code>：保存已登记任务并组织执行。</dd>
+<dt>任务</dt><dd><code>Job</code>：保存运行间隔、时间单位和待调用函数等信息。</dd>
+<dt>回调函数</dt><dd>交给库稍后调用的函数；传入 <code>record</code> 与立即调用 <code>record()</code> 不同。</dd>
+<dt>登记</dt><dd><code>Job.do</code> 完成配置后，将任务加入所属调度器的任务列表。</dd>
+<dt>执行</dt><dd><code>Job.run</code> 内部调用已绑定函数；本课不涉及截止时间或取消任务。</dd>
+</dl>
+<p class="source">来源：<a href="https://github.com/dbader/schedule/blob/1.2.2/schedule/__init__.py">schedule 1.2.2 源码</a>，查找 <code>Scheduler</code>、<code>Job.do</code> 与 <code>Job.run</code>。</p>
+<footer>本页只收录当前导读所需概念。<a href="../lessons/0001-schedule-registration.html">第 01 课：任务何时才算登记？</a></footer>
+</main></body></html>
